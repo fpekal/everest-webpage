@@ -1,0 +1,14 @@
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          nix build
+          rm -rf /srv/www/html/everest/dist/*
+          cp -r --no-preserve=mode result/* /srv/www/html/everest/dist/
+          ln -s /srv/www/html/everest/public/* /srv/www/html/everest/dist/client/
+          # systemctl restart everest-webpage
