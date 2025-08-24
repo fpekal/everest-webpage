@@ -1,3 +1,6 @@
+# nix
+result
+
 # build output
 dist/
 # generated types
