@@ -39,6 +39,8 @@
               "cp -r ${nodeModules} node_modules; chmod +w node_modules; patchShebangs .";
             buildPhase = "ls -la; npm run build";
             installPhase = "cp -r dist $out";
+            fixupPhase =
+              "cp -r node_modules package.json package-lock.json $out";
           };
       };
 
@@ -50,7 +52,7 @@
           src = ./.;
 
           nodeModulesHash =
-            "sha256-5crFYd5gwk03bFnYLMeY7UT/JcT0tIXD+6ziBQkgP0Q=";
+            "sha256-W5mxZRFU+oeMhp3Y0KjRL3ELWrNnK/QG7Kmr4Mht43Y=";
         };
 
         default = self.packages.${system}.webpage;
