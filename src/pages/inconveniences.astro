@@ -1,0 +1,75 @@
+---
+import MainLayout from '../components/MainLayout.astro'
+import { primaryColor, secondaryColor, textColor } from '../components/Palette.astro'
+---
+
+<MainLayout>
+	<div class="container-center">
+		<div class="incon">
+			Regulamin Pizzerii
+		</div>
+		<div class="container">
+			Niniejszy regulamin określa zasady korzystania z usług Pizzerii "Simon's Pizzeria" (dalej zwanej "Pizzerią"). Korzystając z naszych usług, akceptujesz poniższe warunki. <br />
+
+			<h4>I. Zamówienia i Realizacja</h4>
+
+			1.  Zamówienia można składać osobiście, telefonicznie lub za pośrednictwem strony internetowej (jeśli dotyczy).<br />
+2.  Pizzeria zastrzega sobie prawo do odmowy realizacji zamówienia bez podania przyczyny.<br />
+3.  Czas realizacji zamówienia jest orientacyjny i może ulec zmianie z przyczyn niezależnych od Pizzerii.
+
+<h4>II. Odpowiedzialność</h4>
+
+1.  Pizzeria dokłada wszelkich starań, aby zapewnić najwyższą jakość oferowanych produktów i usług. <br />
+2.  KLIENT KORZYSTA Z USŁUG PIZZERII NA WŁASNĄ ODPOWIEDZIALNOŚĆ. PIZZERIA NIE PONOSI ODPOWIEDZIALNOŚCI ZA JAKIEKOLWIEK SZKODY, URAZY, LUB STRATY WYNIKAJĄCE Z KORZYSTANIA Z NASZYCH USŁUG, W TYM, ALE NIE OGRANICZAJĄC SIĘ DO, ZATRUCIA POKARMOWEGO, OBRAŻEŃ CIAŁA, UTRATY MIENIA LUB ŚMIERCI. DOTYCZY TO W SZCZEGÓLNOŚCI DZIECI POZOSTAWIONYCH BEZ OPIEKI. <br />
+3.  Pizzeria nie ponosi odpowiedzialności za rzeczy pozostawione na terenie lokalu. <br />
+4.  WSZELKIE ROSZCZENIA WOBEC PIZZERII OGRANICZAJĄ SIĘ WYŁĄCZNIE DO WARTOŚCI ZAMÓWIENIA, KTÓREGO DOTYCZY REKLAMACJA.
+
+<h4>III. Zasady Zachowania</h4>
+
+1.  Klienci zobowiązani są do przestrzegania zasad współżycia społecznego i dbania o porządek na terenie Pizzerii. <br />
+2.  Pizzeria zastrzega sobie prawo do odmowy obsługi osób pod wpływem alkoholu lub środków odurzających, a także osób zachowujących się agresywnie lub w sposób zakłócający spokój innych klientów.<br />
+3.  WCHODZĄC NA TEREN PIZZERII WYRAŻASZ ZGODĘ NA POTENCJALNE ZAGROŻENIA ZWIĄZANE Z OBECNOŚCIĄ MASZYN, URZĄDZEŃ I INNYCH KLIENTÓW. PIZZERIA NIE PONOSI ODPOWIEDZIALNOŚCI ZA WYPADKI SPOWODOWANE BRAKIEM NADZORU RODZICIELSKIEGO.
+
+
+<h4>IV. Dane Osobowe</h4>
+
+1.  Administratorem danych osobowych klientów jest Pizzeria "Simon's Pizzeria". <br />
+2.  Dane osobowe są przetwarzane w celu realizacji zamówień i obsługi klientów.<br />
+3.  Klienci mają prawo dostępu do swoich danych osobowych, ich poprawiania i usuwania.
+
+<h4>V. Postanowienia Końcowe</h4>
+
+1.  Pizzeria zastrzega sobie prawo do zmiany niniejszego regulaminu. Aktualna wersja regulaminu jest dostępna na stronie internetowej (jeśli dotyczy) oraz w lokalu Pizzerii. <br />
+2.  W sprawach nieuregulowanych w niniejszym regulaminie zastosowanie mają przepisy prawa polskiego.<br />
+3.  KORZYSTANIE Z USŁUG PIZZERII OZNACZA AKCEPTACJĘ NINIEJSZEGO REGULAMINU W CAŁOŚCI. JEŚLI NIE AKCEPTUJESZ KTÓREGOKOLWIEK Z PUNKTÓW REGULAMINU, PROSIMY O NIEKORZYSTANIE Z NASZYCH USŁUG.
+		</div>
+	</div>
+</MainLayout>
+
+<style define:vars={{ primaryColor, secondaryColor, textColor }}>
+	.container-center {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 3em 0;
+	}
+
+	.container {
+		border-radius: 0.3em;
+		background-color: var(--primaryColor);
+		color: var(--textColor);
+
+		width: 40em;
+		padding: 1em;
+		text-align: justify;
+		text-justify: inter-character;
+	}
+
+	.incon {
+		margin-bottom: 1em;
+		font-size: 2em;
+
+		color: var(--textColor);
+		text-shadow: 5px 5px black;
+	}
+</style>

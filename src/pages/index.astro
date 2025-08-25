@@ -1,7 +1,88 @@
 ---
-import MainLayout from '../components/MainLayout.astro'
+import FMiDLayout from '../components/FMiDLayout.astro'
+import FMiDRow from '../components/FMiDRow.astro'
 ---
 
-<MainLayout>
-	<h1>Astro!</h1>
-</MainLayout>
+<FMiDLayout>
+	<div slot="name">
+		Simon's Pizzeria
+	</div>
+	<div slot="header">
+		Mokrsko 354a/1<br />
+		Mokrsko, Łódzkie 98-345<br />
+		Polska
+	</div>
+	<div class="separator" />
+	<FMiDRow>
+		<span slot="name">Margherita Pizza (L)</span>
+		<span slot="cost">1x 25.00zł</span>
+	</FMiDRow>
+	<FMiDRow>
+		<span slot="name">Pepperoni Pizza (M)</span>
+		<span slot="cost">1x 30.00zł</span>
+	</FMiDRow>
+	<FMiDRow>
+		<span slot="name">Garlic Bread</span>
+		<span slot="cost">2x 10.50zł</span>
+	</FMiDRow>
+	<FMiDRow>
+		<span slot="name">Coca-Cola (0.5L)</span>
+		<span slot="cost">3x &nbsp;8.50zł</span>
+	</FMiDRow>
+	<div class="top-margin" />
+	<FMiDRow>
+		<span slot="name"><a href="./inconveniences">Inconveniences</a></span>
+		<span slot="cost">-101.50zł</span>
+	</FMiDRow>
+	<div class="separator" />
+	<FMiDRow>
+		<span slot="name" class="total">Total</span>
+		<span slot="cost" class="total">0.00zł</span>
+	</FMiDRow>
+	<div class="separator" />
+	<FMiDRow>
+		<span slot="name">Paid By:</span>
+		<span slot="cost">Credit</span>
+	</FMiDRow>
+
+	<div class="left top-margin small">
+		2025/11/07 18:21 <br />
+		Transaction ID: 710-789419 <br />
+		Vendor ID: 37513-094
+	</div>
+
+	<div class="top-margin">
+		Thank You For Supporting Local Business!
+	</div>
+</FMiDLayout>
+
+<style>
+	.separator {
+		border-bottom: dotted 3px;
+		margin-bottom: 1em;
+		margin-top: 1em;
+	}
+
+	.total {
+		font-weight: bold;
+		font-size: 1.1em;
+	}
+
+	.small {
+		font-size: 0.8em;
+	}
+
+	.left {
+		padding: 0 0.5em;
+		text-align: left;
+	}
+
+	.top-margin {
+		margin-top: 1.5em;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+</style>

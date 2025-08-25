@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="name">
+		<slot name="name" />
+	</div>
+	<div class="cost">
+		<slot name="cost" />
+	</div>
+</div>
+
+
+<style>
+	.row {
+		display: flex;
+
+		padding: 0 0.5em;
+		margin: 0.2em 0;
+
+		justify-content: space-between;
+	}
+</style>

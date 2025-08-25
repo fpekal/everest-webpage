@@ -1,0 +1,90 @@
+---
+import MainLayout from './MainLayout.astro'
+import DejaVuSansMono from './DejaVuSansMono.astro'
+---
+
+<DejaVuSansMono />
+
+<MainLayout>
+	<div class="container-center">
+		<div class="container">
+			<div class="header">
+				<div class="name">
+					<slot name="name" />
+				</div>
+				<slot name="header" />
+			</div>
+			<div class="content">
+				<slot />
+			</div>
+		</div>
+	</div>
+</MainLayout>
+
+<style>
+	.container-center {
+		display: flex;
+		justify-content: center;
+	}
+
+	.container {
+		background-color: #fff;
+		padding: 1.5em;
+
+		font-family: 'DejaVuSansMono';
+
+		text-align: center;
+
+		margin-top: 3em;
+		margin-bottom: 3em;
+
+		width: 20em;
+
+		box-shadow: 4px 10px 500px -40px;
+	}
+
+
+	.container::before {
+		display: block;
+		content: "";
+    position: relative;
+		left: -1.5em;
+		width: 23em;
+    top: -1.8em;
+    height: 8px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #fff 0 6px,
+      transparent 6px 12px
+    );
+    opacity: 1;
+  }
+
+	.container::after {
+		display: block;
+		content: "";
+    position: relative;
+		left: -1.5em;
+		width: 23em;
+    top: 1.8em;
+    height: 8px;
+    background: repeating-linear-gradient(
+      -45deg,
+      #fff 0 6px,
+      transparent 6px 12px
+    );
+    opacity: 1;
+  }
+
+
+
+	.name {
+		font-weight: bold;
+	}
+
+	.header {
+	}
+
+	.content {
+	}
+</style>

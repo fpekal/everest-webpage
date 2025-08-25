@@ -1,3 +1,7 @@
+---
+import { backgroundColor, primaryColor } from './Palette.astro'
+---
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -10,3 +14,13 @@
 		<slot />
 	</body>
 </html>
+
+<style define:vars={{ backgroundColor }}>
+body {
+	all: unset;
+
+	font-size: 1.5em;
+
+	background-color: var(--backgroundColor);
+}
+</style>
