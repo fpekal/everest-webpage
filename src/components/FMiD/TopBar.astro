@@ -1,6 +1,9 @@
 ---
 import { primaryColor, secondaryColor, additionalColor, textColor } from '../../components/Palette.astro'
+import DejaVuSansMono from '../DejaVuSansMono.astro'
 ---
+
+<DejaVuSansMono />
 
 <div class="topbar">
 	<div class="name">Simon's Pizzeria</div>
@@ -23,6 +26,8 @@ import { primaryColor, secondaryColor, additionalColor, textColor } from '../../
 		justify-content: space-between;
 
 		color: var(--textColor);
+
+		font-family: 'DejaVuSansMono';
 	}
 
 	.name {
