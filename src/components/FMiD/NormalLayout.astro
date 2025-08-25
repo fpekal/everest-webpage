@@ -1,0 +1,51 @@
+---
+import MainLayout from '../../components/MainLayout.astro'
+import TopBar from '../../components/FMiD/TopBar.astro'
+import PizzaBackground from '../../components/FMiD/PizzaBackground.astro'
+
+import { primaryColor, secondaryColor, additionalColor, textColor } from '../../components/Palette.astro'
+---
+
+<MainLayout>
+	<div class="whole">
+		<TopBar />
+		<PizzaBackground />
+		<div class="content-center">
+			<div class="content">
+				<slot />
+			</div>
+		</div>
+	</div>
+</MainLayout>
+
+<style define:vars={{ primaryColor, secondaryColor, additionalColor, textColor }}>
+	.content-center {
+		display: flex;
+		justify-content: center;
+
+		flex: 1;
+	}
+
+	.content {
+		display: flex;
+		max-width: 40em;
+		margin: 0 1em;
+
+		margin-top: 0.5em;
+		margin-bottom: 2em;
+		width: 100%;
+
+		background-color: var(--primaryColor);
+
+		filter: opacity(0.9);
+	}
+
+	.whole {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		flex-direction: column;
+
+		overflow-block: hidden;
+	}
+</style>
