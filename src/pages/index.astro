@@ -1,6 +1,142 @@
 ---
 import NormalLayout from '../components/FMiD/NormalLayout.astro'
+import MenuRow from '../components/FMiD/MenuRow.astro'
+
+import DejaVuSansMono from '../components/DejaVuSansMono.astro'
 ---
 
+<DejaVuSansMono />
+
 <NormalLayout>
+	<div class="content">
+		<div class="title">
+			<h1>Menu</h1>
+		</div>
+		<div class="menu">
+			<MenuRow>
+				<div class="entry">
+					1. <b>Margherita</b><span class="small"> – sos pomidorowy, mozzarella, bazylia</span>
+				</div>
+				<div slot="price">
+					32 cm – 20 zł | 42 cm – 25 zł
+				</div>
+			</MenuRow>
+
+			<MenuRow>
+				<div class="entry">
+					2. <b>Pepperoni</b><span class="small"> – sos pomidorowy, mozzarella, pepperoni, oregano</span>
+				</div>
+				<div slot="price">
+					32 cm – 30 zł | 42 cm – 37 zł
+				</div>
+			</MenuRow>
+
+			<MenuRow>
+				<div class="entry">
+					3. <b>Capricciosa</b><span class="small"> – sos pomidorowy, mozzarella, szynka, pieczarki, karczochy, oliwki</span>
+				</div>
+				<div slot="price">
+					32 cm – 30 zł | 42 cm – 39 zł
+				</div>
+			</MenuRow>
+
+			<MenuRow>
+				<div class="entry">
+					4. <b>Prosciutto e Rucola</b><span class="small"> – sos pomidorowy, mozzarella, szynka parmeńska, rukola, parmezan</span>
+				</div>
+				<div slot="price">
+					32 cm – 34 zł | 42 cm – 44 zł
+				</div>
+			</MenuRow>
+
+			<MenuRow>
+				<div class="entry">
+					5. <b>Quattro Formaggi</b><span class="small"> – sos pomidorowy, mozzarella, gorgonzola, ricotta, parmezan</span>
+				</div>
+				<div slot="price">
+					32 cm – 33 zł | 42 cm – 43 zł
+				</div>
+			</MenuRow>
+
+			<MenuRow>
+				<div class="entry">
+					6. <b>Diavola</b><span class="small"> – sos pomidorowy, mozzarella, pikantne salami, chili, cebula czerwona</span>
+				</div>
+				<div slot="price">
+					32 cm – 32 zł | 42 cm – 42 zł
+				</div>
+			</MenuRow>
+
+			<MenuRow>
+				<div class="entry">
+					7. <b>Vegetariana</b><span class="small"> – sos pomidorowy, mozzarella, papryka, cukinia, bakłażan, pieczarki, oliwki</span>
+				</div>
+				<div slot="price">
+					32 cm – 29 zł | 42 cm – 38 zł
+				</div>
+			</MenuRow>
+
+			<MenuRow>
+				<div class="entry">
+					8. <b>Frutti di Mare</b><span class="small"> – sos pomidorowy, mozzarella, krewetki, małże, kalmary, pietruszka</span>
+				</div>
+				<div slot="price">
+					32 cm – 37 zł | 42 cm – 47 zł
+				</div>
+			</MenuRow>
+
+			<MenuRow>
+				<div class="entry">
+					9. <b>BBQ Pollo</b><span class="small"> – sos BBQ, mozzarella, grillowany kurczak, kukurydza, cebula czerwona</span>
+				</div>
+				<div slot="price">
+					32 cm – 31 zł | 42 cm – 40 zł
+				</div>
+			</MenuRow>
+
+			<MenuRow>
+				<div class="entry">
+					10. <b>Hawaiian</b><span class="small"> – sos pomidorowy, mozzarella, szynka, ananas</span>
+				</div>
+				<div slot="price">
+					32 cm – 28 zł | 42 cm – 36 zł
+				</div>
+			</MenuRow>
+		</div>
+	</div>
 </NormalLayout>
+
+<style>
+	h1 {
+		height: 1.5em;
+		margin: 0.1em;
+		text-align: center;
+	}
+
+	.title {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		width: 100%;
+	}
+
+	.content {
+		padding: 1em;
+		font-family: 'DejaVuSansMono';
+
+		color: white;
+		display: flex;
+		width: 100%;
+
+		flex-direction: column;
+	}
+
+	.small {
+		font-size: 0.6em;
+	}
+
+	.entry {
+		margin-top: 1em;
+	}
+</style>
