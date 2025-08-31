@@ -15,6 +15,13 @@ subtitles.sort( (a, b) => {
 });
 
 subtitles.sort( (a, b) => {
+	let l1 = a.language;
+	let l2 = b.language;
+
+	return l1.localeCompare(l2);
+});
+
+subtitles.sort( (a, b) => {
 	let l1 = a.language === "en" ? 0 : 1;
 	let l2 = b.language === "en" ? 0 : 1;
 
