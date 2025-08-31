@@ -5,7 +5,28 @@ import { searchSubtitles } from 'wyzie-lib';
 import SubsEntry from '../../components/subs/SubsEntry.astro';
 
 const id = Astro.url.searchParams.get("id");
-const subtitles = await searchSubtitles({ tmdb_id: id, format: "srt", encoding: "UTF-8" });
+const subtitles = await searchSubtitles({ tmdb_id: id, format: "srt" });
+
+subtitles.sort( (a, b) => {
+	const l1 = a.encoding === "UTF-8" ? 0 : 1;
+	const l2 = b.encoding === "UTF-8" ? 0 : 1;
+
+	return l1 - l2;
+});
+
+subtitles.sort( (a, b) => {
+	let l1 = a.language === "en" ? 0 : 1;
+	let l2 = b.language === "en" ? 0 : 1;
+
+	return l1 - l2;
+});
+
+subtitles.sort( (a, b) => {
+	let l1 = a.language === "pl" ? 0 : 1;
+	let l2 = b.language === "pl" ? 0 : 1;
+
+	return l1 - l2;
+});
 ---
 
 {subtitles.map( (subtitle) => (
