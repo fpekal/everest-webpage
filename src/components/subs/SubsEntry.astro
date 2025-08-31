@@ -1,0 +1,26 @@
+---
+const subtitle = Astro.props.subtitle;
+
+const flag = subtitle.flagUrl;
+const url = subtitle.url;
+---
+
+<div class="entry">
+	<a href={url}>
+		<div class="entryelems">
+			<img src={flag} />
+			Link!
+		</div>
+	</a>
+</div>
+
+
+<style>
+	.entry {
+	}
+
+	.entryelems {
+		display: flex;
+		justify-content: start;
+	}
+</style>

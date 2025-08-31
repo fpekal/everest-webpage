@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.4.3",
-    "astro": "^5.13.3"
+    "astro": "^5.13.3",
+    "moviedb-promise": "^4.0.7",
+    "wyzie-lib": "^2.2.5"
   }
 }

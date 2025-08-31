@@ -1,0 +1,35 @@
+---
+export const prerender = false;
+
+import getMovie from '../../modules/TMDB/getMovie.js';
+import SearchResultCard from '../../components/subs/SearchResultCard.astro'
+
+const nazwa = Astro.url.searchParams.get("nazwa");
+const movies = await getMovie(nazwa);
+---
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div class="posters">
+			{movies.map( (movie) => (
+				<SearchResultCard movie={movie} />
+			)
+			)}
+		</div>
+	</body>
+</html>
+
+<style>
+	.posters {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	body html {
+		all: unset;
+		width: 100%;
+	}
+</style>
