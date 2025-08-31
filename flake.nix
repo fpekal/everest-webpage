@@ -52,7 +52,7 @@
           src = ./.;
 
           nodeModulesHash =
-            "sha256-W5mxZRFU+oeMhp3Y0KjRL3ELWrNnK/QG7Kmr4Mht43Y=";
+            "sha256-cCTIjA2RQHKiego1UXYIhyvoTH8m9fCb7qBB1JVhJfY=";
         };
 
         default = self.packages.${system}.webpage;
