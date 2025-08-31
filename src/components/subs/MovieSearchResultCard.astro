@@ -6,7 +6,7 @@ const title = movie.title;
 const poster_url = "http://image.tmdb.org/t/p/original" + movie.poster_path;
 ---
 
-<a href={"get?id=" + id}>
+<a href={"/subs/movies/get?id=" + id}>
 	<div class="poster">
 		<img src={poster_url} width='200' />
 		<div class="title">{title}</div>

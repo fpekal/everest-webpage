@@ -2,10 +2,10 @@
 export const prerender = false;
 
 import { searchSubtitles } from 'wyzie-lib';
-import SubsEntry from '../../components/subs/SubsEntry.astro';
+import SubsEntry from '../../../components/subs/SubsEntry.astro';
 
 const id = Astro.url.searchParams.get("id");
-const subtitles = await searchSubtitles({ tmdb_id: id, format: "srt" });
+const subtitles = await searchSubtitles({ tmdb_id: id });
 
 subtitles.sort( (a, b) => {
 	const l1 = a.encoding === "UTF-8" ? 0 : 1;

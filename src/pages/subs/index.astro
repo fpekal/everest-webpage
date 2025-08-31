@@ -1,7 +1,18 @@
 ---
 ---
 
-<form action="/subs/search" method="get">
+<form action="/subs/movies/search" method="get">
 	<input type="text" placeholder="Nazwa filmu" id="nazwa" name="nazwa" />
+	<input type="submit" value="Szukaj" />
+</form>
+
+<br />
+<br />
+<br />
+
+<form action="/subs/series/search" method="get">
+	<input type="text" placeholder="Nazwa serialu" id="nazwa" name="nazwa" />
+	<input type="text" placeholder="Odcinek" id="odcinek" name="odcinek" />
+	<input type="text" placeholder="Sezon" id="sezon" name="sezon" />
 	<input type="submit" value="Szukaj" />
 </form>

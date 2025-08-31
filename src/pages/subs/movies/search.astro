@@ -1,8 +1,8 @@
 ---
 export const prerender = false;
 
-import getMovie from '../../modules/TMDB/getMovie.js';
-import SearchResultCard from '../../components/subs/SearchResultCard.astro'
+import getMovie from '../../../modules/TMDB/getMovie.js';
+import MovieSearchResultCard from '../../../components/subs/MovieSearchResultCard.astro'
 
 const nazwa = Astro.url.searchParams.get("nazwa");
 const movies = await getMovie(nazwa);
@@ -15,7 +15,7 @@ const movies = await getMovie(nazwa);
 	<body>
 		<div class="posters">
 			{movies.map( (movie) => (
-				<SearchResultCard movie={movie} />
+				<MovieSearchResultCard movie={movie} />
 			)
 			)}
 		</div>

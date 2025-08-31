@@ -1,0 +1,38 @@
+---
+export const prerender = false;
+
+import getTV from '../../../modules/TMDB/getTV.js';
+import SeriesSearchResultCard from '../../../components/subs/SeriesSearchResultCard.astro'
+
+const nazwa = Astro.url.searchParams.get("nazwa");
+const odcinek = Astro.url.searchParams.get("odcinek");
+const sezon = Astro.url.searchParams.get("sezon");
+
+const series = await getTV(nazwa);
+---
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div class="posters">
+			{series.map( (serie) => (
+				<SeriesSearchResultCard series={serie} episode={odcinek} season={sezon} />
+			)
+			)}
+		</div>
+	</body>
+</html>
+
+<style>
+	.posters {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	body html {
+		all: unset;
+		width: 100%;
+	}
+</style>
