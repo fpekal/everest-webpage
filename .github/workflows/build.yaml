@@ -13,5 +13,3 @@ jobs:
           rm -rf /srv/www/html/everest/dist/*
           cp -r --no-preserve=mode result/* /srv/www/html/everest/dist/
           ln -s /srv/www/html/everest/public /srv/www/html/everest/dist/client/content
-        env:
-          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
