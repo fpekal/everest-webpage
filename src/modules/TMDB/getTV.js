@@ -7,6 +7,5 @@ export default async function getTV(name) {
 
 	const result = await moviedb.searchTv({ query: name, page: 1, language: "pl"});
 
-	console.log(result);
 	return result.results;
 }
