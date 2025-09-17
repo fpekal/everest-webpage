@@ -1,15 +1,16 @@
 ---
-export const prerender = false;
+const percentage = Astro.props.percentage ?? 0;
+const percentage_text = `${percentage}%`;
 
-let percentage = Astro.props.percentage;
-let percentage_text = `${percentage}%`;
+const fill_color = Astro.props.fill_color ?? "#FFFFFF";
+const border_color = Astro.props.border_color ?? "#FFFFFF";
 
-let random_id = Math.random().toString(36).slice(2, 11);
+const random_id = Math.random().toString(36).slice(2, 11);
 ---
 
 <svg width="1506" height="56" viewBox="0 0 1506 56">
-	<rect x="3" y="3" width="1500" height="50" rx="25" ry="25" fill-opacity="0" stroke="white" stroke-width="3" />
-	<rect x="8" y="8" width="1490" height="40" rx="20" ry="20" fill="white" clip-path={"url(#progress-" + random_id + ")"}/>
+	<rect x="3" y="3" width="1500" height="50" rx="25" ry="25" fill-opacity="0" stroke={border_color} stroke-width="3" />
+	<rect x="8" y="8" width="1490" height="40" rx="20" ry="20" fill={fill_color} clip-path={"url(#progress-" + random_id + ")"}/>
 
 	<clipPath id={"progress-" + random_id}>
 		<rect class="progress-rect" x="0" y="0" height="56" width=0 />
