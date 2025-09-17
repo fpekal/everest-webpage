@@ -1,0 +1,20 @@
+<svg width="1506" height="56" viewBox="0 0 1506 56">
+	<rect x="3" y="3" width="1500" height="50" rx="25" ry="25" fill="black" stroke="white" stroke-width="3" />
+	<rect x="8" y="8" width="1490" height="40" rx="20" ry="20" fill="white" clip-path="url(#progress)"/>
+
+	<clipPath id="progress">
+		<rect id="progress-rect" x="0" y="0" height="56" />
+	</clipPath>
+</svg>
+
+<style>
+	#progress-rect {
+		width: 50%;
+
+		transition: width 1s;
+	}
+
+	#progress-rect:hover {
+		width: 100%;
+	}
+</style>
