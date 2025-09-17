@@ -1,20 +1,34 @@
+---
+export const prerender = false;
+
+let percentage = Astro.props.percentage;
+let percentage_text = `${percentage}%`;
+
+let random_id = Math.random().toString(36).slice(2, 11);
+---
+
 <svg width="1506" height="56" viewBox="0 0 1506 56">
 	<rect x="3" y="3" width="1500" height="50" rx="25" ry="25" fill="black" stroke="white" stroke-width="3" />
-	<rect x="8" y="8" width="1490" height="40" rx="20" ry="20" fill="white" clip-path="url(#progress)"/>
+	<rect x="8" y="8" width="1490" height="40" rx="20" ry="20" fill="white" clip-path={"url(#progress-" + random_id + ")"}/>
 
-	<clipPath id="progress">
-		<rect id="progress-rect" x="0" y="0" height="56" />
+	<clipPath id={"progress-" + random_id}>
+		<rect class="progress-rect" x="0" y="0" height="56" width=0 />
 	</clipPath>
 </svg>
 
-<style>
-	#progress-rect {
-		width: 50%;
+<script define:vars={{random_id, percentage_text}}>
+	{
+		setTimeout(() => {
+			const barClipPath = document.getElementById("progress-" + random_id);
+			const barClipRect = barClipPath.children[0];
 
-		transition: width 1s;
+			barClipRect.style.width = percentage_text
+		}, 100)
 	}
+</script>
 
-	#progress-rect:hover {
-		width: 100%;
+<style>
+	.progress-rect {
+		transition: width 1s;
 	}
 </style>
