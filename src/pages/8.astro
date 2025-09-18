@@ -1,0 +1,91 @@
+---
+const sentences = [
+	"Uwielbiam ósemkę.",
+	"Kocham liczbę 8.",
+	"Ósemka to moja miłość.",
+	"Jestem zakochany w ósemce.",
+	"Mam słabość do liczby 8.",
+	"8 to moja ulubiona liczba.",
+	"8 to moje serce.",
+	"Kocham ósemeczkę.",
+	"Liczba 8 jest moją ukochaną.",
+	"8 to miłość mojego życia.",
+	"Jestem fanem ósemki.",
+	"Uwielbiam cyfrę 8.",
+	"8 to moja liczba szczęścia i miłości.",
+	"8 to moja pasja.",
+	"Mam miłość do ósemki.",
+	"8 to moja ukochana cyfra.",
+	"Kocham symbol nieskończoności – czyli 8.",
+	"8 zawsze będzie w moim sercu.",
+	"8 to moje ulubione serduszko wśród liczb.",
+	"Bez ósemki nie byłoby miłości.",
+	"8 to miłość, 8 to radość",
+	"Serce moje bije dla ósemki.",
+	"Cały mój świat kręci się wokół 8.",
+	"8 to moja dusza.",
+	"Jestem oddany ósemce.",
+	"8 – moja jedyna i prawdziwa.",
+	"8 to moje szczęście.",
+	"Kocham 8 ponad wszystko.",
+	"8 to moja druga połówka.",
+	"Zawsze wybiorę ósemkę.",
+	"8 to moje przeznaczenie.",
+	"W moim sercu mieszka 8.",
+	"8 jest moją obsesją.",
+	"Nie ma mnie bez ósemki.",
+	"8 to moja tajemna miłość.",
+	"8 i ja – wieczna para.",
+	"Kocham 8 aż po kres.",
+	"8 to moje natchnienie.",
+	"Całuję ósemkę w myślach.",
+	"Marzę o 8 każdego dnia.",
+	"Żyję dla 8.",
+	"8 to mój amulet.",
+	"Moja ulubiona cyfra to 8 – i kocham ją.",
+	"Nie ma piękniejszej od ósemki.",
+	"8 to mój ideał.",
+	"Kocham 8, bo daje mi radość.",
+	"Moje serce wybiera 8.",
+	"8 jest dla mnie wszystkim.",
+	"Moja lojalność należy do 8.",
+	"8 – zawsze blisko mojego serca.",
+	"Moja miłość do 8 nie zna granic.",
+	"Oddaję serce liczbie 8.",
+	"8 jest moją inspiracją.",
+	"Kocham 8 za jej doskonałość.",
+	"Ósemka jest moją królową.",
+	"Gdy widzę 8, uśmiecham się.",
+	"8 to moje niebo.",
+	"Moja dusza należy do 8.",
+	"8 to moja iskra życia.",
+	"8 daje mi poczucie harmonii.",
+	"Zawsze tęsknię za 8.",
+	"Kocham 8 tak jak nic innego.",
+	"8 to mój numer miłości.",
+	"8 jest moim domem.",
+	"8 daje mi siłę.",
+	"Zawsze wierny ósemce.",
+	"8 to moja muzyka.",
+	"8 rozświetla moje życie.",
+	"Kocham 8 tak, jak inni kochają ludzi.",
+	"8 to mój sekret szczęścia.",
+	"Bez 8 nie ma mnie.",
+];
+
+const random_sentences = [];
+for (let i = 0; i <= 100000; i++) {
+	random_sentences.push(sentences.at(Math.floor(Math.random()*72)));
+}
+---
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		{random_sentences.map((n) => (
+		<>{n}&nbsp;</>
+		))}
+	</body>
+</html>
