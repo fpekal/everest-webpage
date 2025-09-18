@@ -25,7 +25,7 @@ const id = Astro.props.id ?? ("progress-" + random_id);
 
 		setTimeout(() => {
 			barClipRect.style.width = percentage_text
-		}, 100)
+		}, 0)
 
 		const observer = new MutationObserver(() => {
 			barClipRect.style.width = barClipPath.dataset.percentage + "%";
