@@ -5,8 +5,25 @@ import Bar from '../../components/progress/Bar.astro'
 ---
 
 <MainLayout>
-	<Bar percentage="20" />
+	<Bar percentage="20" id="changing" />
 	<Bar percentage="80" border_color="#FF0000" fill_color="#00FF00" />
 	<Bar percentage="50" fill_color="#FF0000" />
 </MainLayout>
 
+<script>
+	{
+		const el = document.getElementById("changing");
+
+		setTimeout(() => {
+			el.dataset.percentage = 80;
+		}, 1000);
+
+		setTimeout(() => {
+			el.dataset.percentage = 0;
+		}, 2000);
+
+		setTimeout(() => {
+			el.dataset.percentage = 30;
+		}, 3000);
+	}
+</script>

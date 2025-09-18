@@ -6,25 +6,31 @@ const fill_color = Astro.props.fill_color ?? "#FFFFFF";
 const border_color = Astro.props.border_color ?? "#FFFFFF";
 
 const random_id = Math.random().toString(36).slice(2, 11);
+const id = Astro.props.id ?? ("progress-" + random_id);
 ---
 
 <svg width="1506" height="56" viewBox="0 0 1506 56">
 	<rect x="3" y="3" width="1500" height="50" rx="25" ry="25" fill-opacity="0" stroke={border_color} stroke-width="3" />
-	<rect x="8" y="8" width="1490" height="40" rx="20" ry="20" fill={fill_color} clip-path={"url(#progress-" + random_id + ")"}/>
+	<rect x="8" y="8" width="1490" height="40" rx="20" ry="20" fill={fill_color} clip-path={"url(#" + id + ")"}/>
 
-	<clipPath id={"progress-" + random_id}>
+	<clipPath id={id} data-percentage="10">
 		<rect class="progress-rect" x="0" y="0" height="56" width=0 />
 	</clipPath>
 </svg>
 
-<script define:vars={{random_id, percentage_text}}>
+<script define:vars={{id, percentage_text}}>
 	{
-		setTimeout(() => {
-			const barClipPath = document.getElementById("progress-" + random_id);
-			const barClipRect = barClipPath.children[0];
+		const barClipPath = document.getElementById(id);
+		const barClipRect = barClipPath.children[0];
 
+		setTimeout(() => {
 			barClipRect.style.width = percentage_text
 		}, 100)
+
+		const observer = new MutationObserver(() => {
+			barClipRect.style.width = barClipPath.dataset.percentage + "%";
+		});
+		observer.observe(barClipPath, { attributes: true, attributeFilter: ['data-percentage'] });
 	}
 </script>
 
