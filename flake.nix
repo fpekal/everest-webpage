@@ -1,61 +1,65 @@
 {
-  inputs = { nixpkgs.url = "github:nixos/nixpkgs"; };
+  inputs = {nixpkgs.url = "github:nixos/nixpkgs";};
 
-  outputs = { nixpkgs, self }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      lib = {
-        buildNodePackage = { name, version, src, nodeModulesHash }@args:
-          let
-            nodeModules = pkgs.stdenv.mkDerivation {
-              name = "node-modules";
+  outputs = {
+    nixpkgs,
+    self,
+  }: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    lib = {
+      buildNodePackage = {
+        name,
+        version,
+        src,
+        nodeModulesHash,
+      } @ args: let
+        nodeModules = pkgs.stdenv.mkDerivation {
+          name = "node-modules";
 
-              outputHash = nodeModulesHash;
-              outputHashMode = "recursive";
+          outputHash = nodeModulesHash;
+          outputHashMode = "recursive";
 
-              buildInputs = [ pkgs.nodejs ];
-              nativeBuildInputs = [ pkgs.nodejs ];
+          buildInputs = [pkgs.nodejs_24];
+          nativeBuildInputs = [pkgs.nodejs_24];
 
-              builder = pkgs.writeText "node-modules" ''
-                export NODE_EXTRA_CA_CERTS=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
-                export HOME=$(mktemp -d)
-                cp -r ${src}/* .
+          builder = pkgs.writeText "node-modules" ''
+            export NODE_EXTRA_CA_CERTS=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
+            export HOME=$(mktemp -d)
+            cp -r ${src}/* .
 
-                npm ci --logs-max=0
+            npm ci --logs-max=0
 
-                cp -r node_modules $out
-              '';
-            };
-          in pkgs.stdenv.mkDerivation {
-            inherit name version src;
-
-            HOME = "$(mktemp -d)";
-            buildInputs = [ pkgs.nodejs ];
-            nativeBuildInputs = [ pkgs.nodejs ];
-
-            patchPhase =
-              "cp -r ${nodeModules} node_modules; chmod +w node_modules; patchShebangs .";
-            buildPhase = "ls -la; npm run build";
-            installPhase = "cp -r dist $out";
-            fixupPhase =
-              "cp -r node_modules package.json package-lock.json $out";
-          };
-      };
-
-      packages.${system} = {
-        webpage = self.lib.buildNodePackage {
-          name = "webpage";
-          version = "1.0.0";
-
-          src = ./.;
-
-          nodeModulesHash =
-            "sha256-O6yu4k1563KrwaIwSGrLI4x7sdZ5tccDd8Kl44rBCuM=";
+            cp -r node_modules $out
+          '';
         };
+      in
+        pkgs.stdenv.mkDerivation {
+          inherit name version src;
 
-        default = self.packages.${system}.webpage;
-      };
+          HOME = "$(mktemp -d)";
+          buildInputs = [pkgs.nodejs_24];
+          nativeBuildInputs = [pkgs.nodejs_24];
+
+          patchPhase = "cp -r ${nodeModules} node_modules; chmod +w node_modules; patchShebangs .";
+          buildPhase = "ls -la; npm run build";
+          installPhase = "cp -r dist $out";
+          fixupPhase = "cp -r node_modules package.json package-lock.json $out";
+        };
     };
+
+    packages.${system} = {
+      webpage = self.lib.buildNodePackage {
+        name = "webpage";
+        version = "1.0.0";
+
+        src = ./.;
+
+        nodeModulesHash = "sha256-LVLjqmbNq1IvZIByi15RxG1Z4ITr4S9EWwpJmFNtdkA=";
+      };
+
+      default = self.packages.${system}.webpage;
+    };
+  };
 }

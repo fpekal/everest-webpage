@@ -9,11 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.4.3",
+    "@astrojs/node": "^10.0.4",
     "@tailwindcss/vite": "^4.1.13",
-    "astro": "^5.13.3",
+    "astro": "^6.0.0",
     "moviedb-promise": "^4.0.7",
     "tailwindcss": "^4.1.13",
     "wyzie-lib": "^2.2.5"
-  }
+  },
+  "overrides": { "vite": "^7" }
 }
